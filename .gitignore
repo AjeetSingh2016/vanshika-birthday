@@ -1,0 +1,41 @@
+# Node modules  
+node_modules/  
+
+# Build output  
+.next/  
+out/  
+
+# Logs  
+npm-debug.log*  
+yarn-debug.log*  
+yarn-error.log*  
+pnpm-debug.log*  
+debug.log*  
+
+# Dependency directories  
+.vscode/  
+.idea/  
+.DS_Store  
+
+# Local environment files  
+.env.local  
+.env.development.local  
+.env.test.local  
+.env.production.local  
+
+# Next.js cache  
+.next/cache/  
+
+# Lint and formatting  
+.eslintcache  
+.prettier_cache/  
+
+# Optional: Ignore the `.vercel` and `.netlify` folders if deploying to these platforms  
+.vercel/  
+.netlify/  
+
+# Optional: Ignore typescript build files  
+*.tsbuildinfo  
+
+# Ignore Tailwind CSS jit build cache  
+.tailwind-cache/  
