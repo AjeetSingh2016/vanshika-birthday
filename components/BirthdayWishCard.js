@@ -1,9 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 export default function BirthdayCard() {
   const [isOpen, setIsOpen] = useState(false);
+  const cardRef = useRef(null);
 
+  // Use Intersection Observer to detect when card enters/exits viewport
+  useEffect(() => {
+    const options = {
+      root: null, // use the viewport
+      rootMargin: '0px',
+      threshold: 0.1 // 10% visibility threshold only
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // When at least 10% of the card is visible, open it
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
+          setIsOpen(true);
+        } 
+        // When less than 10% is visible, close it
+        else {
+          setIsOpen(false);
+        }
+      });
+    }, options);
+
+    // Start observing the card
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    // Cleanup observer on unmount
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  // Manual click handler still works
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -31,49 +67,71 @@ export default function BirthdayCard() {
   };
 
   return (
-    <div className="flex items-center justify-center ">
-      <motion.div
-        className="relative w-[250px] h-[350px] cursor-pointer"
-        style={{ transformStyle: 'preserve-3d', perspective: '2500px' }}
-        variants={containerVariants}
-        animate={isOpen ? 'open' : 'closed'}
-        onClick={handleClick}
-      >
-        {/* Card Front */}
+    <div className="flex items-center justify-center min-h-screen w-full p-4 overflow-hidden">
+      <div className="relative w-full max-w-md mx-auto">
         <motion.div
-          className="absolute w-full h-full bg-white overflow-hidden shadow-[inset_100px_20px_100px_rgba(0,0,0,0.2),30px_0_50px_rgba(0,0,0,0.4)]"
-          variants={cardVariants}
+          ref={cardRef}
+          className="relative w-full aspect-[3/4] mx-auto cursor-pointer"
+          style={{ 
+            transformStyle: 'preserve-3d', 
+            perspective: '2500px',
+            maxHeight: '80vh' // Ensure card doesn't exceed viewport height
+          }}
+          variants={containerVariants}
           animate={isOpen ? 'open' : 'closed'}
-          style={{ transformOrigin: 'left' }}
+          onClick={handleClick}
         >
-          <h3 
-            className={`text-center mt-8 font-tahoma text-2xl font-bold bg-gradient-to-r from-[#f6d365] to-[#fda085] bg-clip-text text-transparent ${isOpen ? 'invisible' : 'visible'}`}
+          {/* Card Front */}
+          <motion.div
+            className="absolute w-full h-full bg-white rounded-lg overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_0_30px_rgba(0,0,0,0.2)]"
+            variants={cardVariants}
+            animate={isOpen ? 'open' : 'closed'}
+            style={{ transformOrigin: 'left' }}
           >
-            HAPPY BIRTHDAY Love!
-          </h3>
-          <div className="absolute">
-            <div className="absolute w-[85px] h-[95px] rounded-full bg-[rgba(239,71,111,0.7)] left-[-10px] top-[50px] after:content-[''] after:absolute after:w-[1px] after:h-[155px] after:bg-[#ffd166] after:top-[95px] after:left-[43px] before:content-[''] before:absolute before:border-r-[7px] before:border-l-[7px] before:border-t-0 before:border-transparent before:border-b-[10px] before:border-b-[#ef476f] before:top-[94px] before:left-[37px]" />
-            <div className="absolute w-[85px] h-[95px] rounded-full bg-[rgba(6,214,160,0.7)] left-[50px] top-[20px] after:content-[''] after:absolute after:w-[1px] after:h-[155px] after:bg-[#ffd166] after:top-[95px] after:left-[43px] before:content-[''] before:absolute before:border-r-[7px] before:border-l-[7px] before:border-t-0 before:border-transparent before:border-b-[10px] before:border-b-[#06d6a0] before:top-[94px] before:left-[37px]" />
-            <div className="absolute w-[85px] h-[95px] rounded-full bg-[rgba(255,209,102,0.7)] left-[110px] top-[50px] after:content-[''] after:absolute after:w-[1px] after:h-[155px] after:bg-[#ffd166] after:top-[95px] after:left-[43px] before:content-[''] before:absolute before:border-r-[7px] before:border-l-[7px] before:border-t-0 before:border-transparent before:border-b-[10px] before:border-b-[#ffd166] before:top-[94px] before:left-[37px]" />
-            <div className="absolute w-[85px] h-[95px] rounded-full bg-[rgba(17,138,178,0.7)] left-[170px] top-[20px] after:content-[''] after:absolute after:w-[1px] after:h-[155px] after:bg-[#ffd166] after:top-[95px] after:left-[43px] before:content-[''] before:absolute before:border-r-[7px] before:border-l-[7px] before:border-t-0 before:border-transparent before:border-b-[10px] before:border-b-[#118ab2] before:top-[94px] before:left-[37px]" />
+            <h3 
+              className={`text-center mt-6 sm:mt-8 font-sans text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#f6d365] to-[#fda085] bg-clip-text text-transparent p-2 ${isOpen ? 'invisible' : 'visible'}`}
+            >
+              HAPPY BIRTHDAY Love!
+            </h3>
+            
+            <div className="absolute w-full h-4/5 top-16">
+              {/* First balloon - scales with container */}
+              <div className="absolute w-1/5 aspect-square rounded-full bg-[rgba(239,71,111,0.7)] left-[5%] top-[15%] 
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2 
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#ef476f] before:top-[98%] before:left-[40%]" />
+              
+              {/* Second balloon */}
+              <div className="absolute w-1/5 aspect-square rounded-full bg-[rgba(6,214,160,0.7)] left-[28%] top-[8%] 
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2 
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#06d6a0] before:top-[98%] before:left-[40%]" />
+              
+              {/* Third balloon */}
+              <div className="absolute w-1/5 aspect-square rounded-full bg-[rgba(255,209,102,0.7)] left-[50%] top-[15%] 
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2 
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#ffd166] before:top-[98%] before:left-[40%]" />
+              
+              {/* Fourth balloon */}
+              <div className="absolute w-1/5 aspect-square rounded-full bg-[rgba(17,138,178,0.7)] left-[72%] top-[8%] 
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2 
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#118ab2] before:top-[98%] before:left-[40%]" />
+            </div>
+          </motion.div>
+
+          {/* Card Inside */}
+          <div className="absolute w-full h-full bg-white rounded-lg shadow-[inset_0_0_30px_rgba(0,0,0,0.2)] z-[-1] p-4">
+            <h3 className="text-center mt-4 sm:mt-6 font-sans text-xl sm:text-2xl md:text-3xl text-[#333] border-2 border-dotted border-[#333] p-2 rounded-md">
+              HAPPY BIRTHDAY vodoo!
+            </h3>
+            <div className="mt-4 sm:mt-8 md:mt-10 mx-4 md:mx-6 h-3/5 overflow-y-auto">
+              <p className="font-serif italic text-base sm:text-lg md:text-xl text-[#333] mb-2">Dear Friend,</p>
+              <p className="font-serif italic text-base sm:text-lg md:text-xl text-[#333]">
+                Happy birthday!! I hope your day is filled with lots of love and
+                laughter! May all of your birthday wishes come true.
+              </p>
+            </div>
           </div>
         </motion.div>
-
-        {/* Card Inside */}
-        <div className="absolute w-full h-full bg-white shadow-[inset_100px_20px_100px_rgba(0,0,0,0.2)] z-[-1]">
-          <h3 className="text-center mt-8 font-tahoma text-2xl text-[#333] outline-dotted outline-[#333]">
-            HAPPY BIRTHDAY vodoo!
-          </h3>
-          <p className="mt-10 mx-10 font-[Brush-Script-MT] text-[#333]">Dear Friend,</p>
-          <p className="mx-10 font-[Brush-Script-MT] text-[#333]">
-            Happy birthday!! I hope your day is filled with lots of love and
-            laughter! May all of your birthday wishes come true.
-          </p>
-          <p className="absolute left-[150px] top-[200px] text-[#333] font-[Brush-Script-MT]">
-            Pawan
-          </p>
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

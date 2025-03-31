@@ -34,13 +34,22 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="container mx-auto px-4 py-8"
+            className="container mx-auto px-4 pb-4 pt-4"
           >
             <FloatingBalloons />
             <Fireworks />
 
-            <section className="mb-16">
+            {/* <section className="mb-16">
+       
+            </section> */}
+            <section className="mb-16 min-h-screen ">
+            
+              <div className="grid gap-8 mb-16">
               <BirthdayMessage />
+                <MemorySlideshow />
+                {/* <FlipCard /> */}
+                
+              </div>
             </section>
 
             <section className="mb-16">
@@ -52,13 +61,12 @@ export default function Home() {
 
             <section className="mb-16">
             
-              <div className="grid gap-8">
-                <BeforeAfterCard />
-                <MemorySlideshow />
-                {/* <FlipCard /> */}
-                
-              </div>
-            </section>
+            <div className="grid gap-8">
+              <BeforeAfterCard />
+              {/* <FlipCard /> */}
+              
+            </div>
+          </section>
 
             <section className="mb-16">
               <h2 className="text-3xl font-dancing text-center text-birthday-purple mb-8">
