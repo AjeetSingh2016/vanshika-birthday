@@ -79,6 +79,8 @@ html {
 }
 
 
+
+
 .birthdayCard {
   position: relative;
   width: 250px;
@@ -234,4 +236,43 @@ p {
   margin: 30px;
   outline-color: #333;
   outline-style: dotted;
+}
+
+
+/* Custom classes for 3D card effect */
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotateY-180 {
+  transform: rotateY(180deg);
+}
+
+/* Aspect ratio utility (for image containers) */
+.aspect-w-3 {
+  position: relative;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  --tw-aspect-w: 3;
+}
+
+.aspect-h-2 {
+  --tw-aspect-h: 2;
+}
+
+.aspect-w-3 > * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
