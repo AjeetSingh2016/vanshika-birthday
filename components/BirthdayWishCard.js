@@ -129,28 +129,31 @@ export default function BirthdayCard() {
           </motion.div>
 
           {/* Card Inside */}
-          <div className="absolute w-full h-full rounded-lg shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] z-[-1] bg-white flex flex-col justify-between border-l-2 border-dotted border-[#333]">
-            <h3 className="text-center mt-4 sm:mt-6 font-sans text-xl sm:text-2xl md:text-3xl text-[#333] border-r-2 border-t-2 border-b-2 border-dotted border-[#333] p-2">
+          <div className="absolute w-full h-full rounded-lg shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] z-[-1] bg-white flex flex-col border-l-2 border-dotted border-[#333]">
+            {/* Header - smaller on mobile */}
+            <h3 className="text-center mt-2 sm:mt-4 md:mt-6 font-sans text-lg sm:text-xl md:text-2xl text-[#333] border-r-2 border-t-2 border-b-2 border-dotted border-[#333] p-1 sm:p-2">
               HAPPY BIRTHDAY!
             </h3>
-            <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 md:px-8">
-              <p className="font-serif italic text-base sm:text-lg md:text-xl text-[#333] mb-2">
+            
+            {/* Content - reduced padding on mobile */}
+            <div className="flex-grow flex flex-col justify-center px-2 sm:px-4 md:px-6 py-1 sm:py-2">
+              <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#333] mb-1 sm:mb-2">
                 Dear Friend,
               </p>
-              <p className="font-dancing font-bold text-lg sm:text-lg md:text-lg text-[#333]">
+              <p className="font-dancing font-bold text-sm sm:text-base md:text-lg text-[#333]">
                 I hope your day is filled with lots of love and laughter! May
                 all of your birthday wishes come true.
               </p>
             </div>
-            <div className="w-full px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8">
-              {/* Fixed image container with proper aspect ratio handling */}
-              <div className="relative w-full h-32 sm:h-40 md:h-48">
+            
+            {/* Image container - proportional height */}
+            <div className="w-full px-2 sm:px-4 md:px-6 pb-2 sm:pb-4 md:pb-6 flex-shrink-0" style={{ height: "30%" }}>
+              <div className="relative h-full w-full rounded-xl overflow-hidden">
                 <Image
                   src="/images/wishCard/wishcard.png"
                   alt="Birthday Wish"
                   fill
-                  style={{ objectFit: 'cover' }}
-                  className="rounded-xl"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
                   priority
                 />
               </div>

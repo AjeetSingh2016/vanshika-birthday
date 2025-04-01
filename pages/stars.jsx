@@ -236,7 +236,7 @@ export default function Home() {
                   <div className="flex-1">
                     <p className="text-white font-semibold">Slidesgow #2</p>
                     <a 
-                      href="https://ncert-epub.s3.us-east-1.amazonaws.com/test/slideshow.mp4" 
+                      href="https://drive.google.com/file/d/1OBQ0Fv1YoeoivyFju_71urExDcB5gkSy/view?usp=sharing" 
                       className="text-cyan-300 hover:text-cyan-200 text-sm transition-colors"
                       download={"https://ncert-epub.s3.us-east-1.amazonaws.com/test/slideshow.mp4"}
                     >
