@@ -31,7 +31,7 @@ const MemorySlideshow = () => {
   }, []);
 
   return (
-    <div className="relative w-[400px] max-w-3xl mx-auto h-[600px] overflow-hidden rounded-xl shadow-2xl flex items-center justify-center">
+    <div className="relative w-[300px] h-[500px] md:w-[400px] md:h-[600px] max-w-3xl mx-auto   overflow-hidden rounded-xl shadow-2xl flex items-center justify-center">
       {memories.map((memory, index) => (
         <motion.div
           key={index}

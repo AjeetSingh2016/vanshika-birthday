@@ -24,7 +24,7 @@ const FloatingBalloons = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none">
+    <div className="fixed inset-0 pointer-events-none z-50">
       {balloons.map((balloon) => (
         <motion.div
           key={balloon.id}

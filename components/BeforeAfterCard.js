@@ -47,7 +47,7 @@ const BeforeAfterCard = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
             <p className="absolute bottom-4 left-4 text-white text-2xl font-dancing">
-              Then ✨
+              Click here ✨
             </p>
           </div>
 
@@ -69,7 +69,7 @@ const BeforeAfterCard = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
             <p className="absolute bottom-4 right-4 text-white text-2xl font-dancing">
-              Now 🌟
+              Click here🌟
             </p>
           </div>
         </motion.div>

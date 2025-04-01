@@ -5,14 +5,14 @@ const BirthdayMessage = () => {
   const name = "Vanshika!".split("");
 
   return (
-    <div className="text-center pt-6">
+    <div className="text-center pt-6 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         className="relative"
       >
-        <h1 className="text-5xl md:text-7xl font-dancing text-birthday-purple mb-8">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-dancing text-birthday-purple mb-8">
           {letters.map((letter, index) => (
             <motion.span
               key={index}
@@ -45,14 +45,13 @@ const BirthdayMessage = () => {
         </h1>
 
         <motion.div
-          className="text-xl md:text-2xl font-poppins text-gray-700 max-w-2xl mx-auto px-4"
+          className="text-lg sm:text-xl md:text-2xl font-poppins text-gray-700 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.5, duration: 1 }}
         >
           <p className="mb-4">
-            On this special day, may your heart be filled with joy, your face with smiles, 
-        
+            On this special day, may your heart be filled with joy, your face with smiles,
           </p>
         </motion.div>
 
