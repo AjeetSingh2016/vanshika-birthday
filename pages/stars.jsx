@@ -120,7 +120,7 @@ export default function Home() {
       <div className="flex items-center justify-center min-h-screen relative z-10">
         <Sparkles>
           <motion.h1 
-            className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-pink-200 to-cyan-200 tracking-wide"
+            className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-pink-200 to-cyan-200 tracking-wide text-center"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ 
               opacity: 1, 
@@ -136,6 +136,7 @@ export default function Home() {
               textShadow: { duration: 4, repeat: Infinity }
             }}
           >
+            
             UNWRAP THE FUN!
           </motion.h1>
         </Sparkles>

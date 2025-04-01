@@ -68,12 +68,11 @@ export default function Home() {
             </div>
           </section>
 
-            <section className="mt-20">
-        
+            <section className="mt-48">
               <Surprise />
             </section>
 
-            <footer className="text-center py-8">
+            <footer className="text-center py-4">
               <p className="text-xl font-dancing text-birthday-purple">
                 Made with ❤️ for your special day!
               </p>
