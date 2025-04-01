@@ -7,16 +7,19 @@ const MemorySlideshow = () => {
   
   const memories = [
     {
-      image: '/memory1.jpg',
-      caption: 'Happy moments together! 😊'
+      image: '/images/slideshow/slideshow1.png',
+      caption: '🎉 Birthday Vibes Only! ✨🎂'
     },
     {
-      image: '/memory2.jpg',
-      caption: 'Creating beautiful memories! 🌟'
+      image: '/images/slideshow/slideshow2.png',
+      caption: '😎 Too cool to age, too fab to care! 🎊'
     },
     {
-      image: '/memory3.jpg',
-      caption: 'Special times with special people! 💖'
+      image: '/images/slideshow/slideshow3.png',
+      caption: '💖 Smiling through another amazing year! 😊'
+    },{
+      image: '/images/slideshow/slideshow4.png',
+      caption: '💫 Birthday mood = Happy & glowing! 🌟'
     }
   ];
 
@@ -31,7 +34,7 @@ const MemorySlideshow = () => {
   }, []);
 
   return (
-    <div className="relative w-[300px] h-[500px] md:w-[400px] md:h-[600px] max-w-3xl mx-auto   overflow-hidden rounded-xl shadow-2xl flex items-center justify-center">
+    <div className="relative w-[300px] h-[450px] md:w-[400px] md:h-[600px] max-w-3xl mx-auto   overflow-hidden rounded-xl shadow-2xl flex items-center justify-center">
       {memories.map((memory, index) => (
         <motion.div
           key={index}

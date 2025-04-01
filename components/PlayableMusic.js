@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
-const PlayableMusic = () => {
+const PlayableMusic = ({musicTrigger}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
@@ -15,10 +15,11 @@ const PlayableMusic = () => {
         audioRef.current = null;
       }
     };
+    
   }, []);
 
   const togglePlay = () => {
-    if (audioRef.current) {
+    if (musicTrigger && audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
@@ -27,6 +28,13 @@ const PlayableMusic = () => {
       setIsPlaying(!isPlaying);
     }
   };
+
+  useEffect(() => {
+    togglePlay();
+  }, [musicTrigger])
+  
+
+ 
 
   return (
     <motion.button

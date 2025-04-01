@@ -14,10 +14,12 @@ import Surprise from "../components/Surprise";
 
 export default function Home() {
   const [isGiftOpened, setIsGiftOpened] = useState(false);
+  const [musicTrigger, setMusicTrigger] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-purple-100 relative overflow-hidden">
-      <PlayableMusic />
+
+      <PlayableMusic musicTrigger={musicTrigger}/>
 
       <AnimatePresence>
         {!isGiftOpened ? (
@@ -26,7 +28,10 @@ export default function Home() {
             className="min-h-screen flex items-center justify-center"
             exit={{ opacity: 0, scale: 0 }}
           >
-            <GiftBox onOpen={() => setIsGiftOpened(true)} />
+            <GiftBox onOpen={() => {
+              setIsGiftOpened(true)
+              setMusicTrigger(true)
+              }} />
           </motion.div>
         ) : (
           <motion.div
@@ -44,7 +49,7 @@ export default function Home() {
             </section> */}
             <section className="mb-16 min-h-screen ">
             
-              <div className="grid gap-8 mb-16">
+              <div className="mb-16">
               <BirthdayMessage />
                 <MemorySlideshow />
                 {/* <FlipCard /> */}

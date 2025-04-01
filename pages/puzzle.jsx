@@ -10,7 +10,7 @@ export default function PuzzlePage() {
   const [solved, setSolved] = useState(false);
   const [showOriginal, setShowOriginal] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
-  const imageSrc = '/puzzle-image.jpg'; // Update this to a relevant birthday image
+  const imageSrc = '/images/puzzle/puzzle-image-1.png'; // Update this to a relevant birthday image
   const numPieces = 6;
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function PuzzlePage() {
         setShowOriginal(true);
         setTimeout(() => {
           setRedirecting(true);
-          router.push('/stars'); // Changed from '/stars' to '/presents'
+          router.push('/stars');
         }, 3000);
       }, 1000);
     }
@@ -63,7 +63,6 @@ export default function PuzzlePage() {
         Solve Puzzle! 🎀
       </motion.h1>
       
-
       <AnimatePresence mode="wait">
         {showOriginal ? (
           <motion.div
@@ -75,13 +74,12 @@ export default function PuzzlePage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-2xl font-bold mb-2 font-cursive text-purple-600">Yay, You Did It! 🎉</h2>
-            <motion.div className="w-full max-w-md mx-auto mb-2 relative">
+            <motion.div className="w-full max-w-lg mx-auto mb-2 relative">
               <img 
                 src={imageSrc} 
                 alt="Complete Birthday Present" 
                 className="w-full h-auto rounded-lg shadow-lg border-4 border-pink-300"
               />
-            
             </motion.div>
             {redirecting ? (
               <motion.div>
@@ -110,11 +108,11 @@ export default function PuzzlePage() {
         ) : (
           <motion.div
             key="puzzle-container"
-            className="w-full max-w-md bg-white bg-opacity-70 p-4 rounded-lg shadow-lg border-2 border-dashed border-pink-400"
+            className="w-full max-w-lg bg-white bg-opacity-70 p-4 rounded-lg shadow-lg border-2 border-dashed border-pink-400"
             exit={{ scale: 0.8, opacity: 0 }}
           >
             <div className="flex flex-col items-center mb-4">
-              <div className="relative w-full h-96 overflow-hidden rounded-lg">
+              <div className="relative w-full h-[600px] overflow-hidden rounded-lg">
                 <EnhancedPuzzle
                   pieces={pieces}
                   imageSrc={imageSrc}
