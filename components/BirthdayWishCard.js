@@ -52,7 +52,7 @@ export default function BirthdayCard() {
     },
     open: {
       rotateY: -160,
-      transition: { duration: 2 }
+      transition: { duration: 4 }
     }
   };
 
@@ -126,7 +126,7 @@ export default function BirthdayCard() {
             </h3>
             <div className="mt-4 sm:mt-8 md:mt-10 mx-4 md:mx-6 h-3/5 overflow-y-auto">
               <p className="font-serif italic text-base sm:text-lg md:text-xl text-[#333] mb-2">Dear Friend,</p>
-              <p className="font-serif italic text-base sm:text-lg md:text-sm text-[#333]">
+              <p className="font-serif italic text-base md:text-sm text-[#333]">
                 I hope your day is filled with lots of love and
                 laughter! May all of your birthday wishes come true.
               </p>

@@ -106,8 +106,7 @@ const EnhancedTwoLayerCake = () => {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="absolute inset-0 flex flex-col items-center justify-center text-center"
             >
-              <h1 className="text-xl font-bold text-pink-700 md:text-2xl">Birthday Surprise</h1>
-              <p className="text-sm opacity-80 text-brown-800 md:text-base">Solve the puzzle to unlock your special surprise!</p>
+              <h1 className="text-xl font-bold text-pink-700 md:text-2xl">Get Birthday Surprise</h1>
             </motion.div>
           </div>
         </div>
