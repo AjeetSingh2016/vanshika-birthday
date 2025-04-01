@@ -25,9 +25,9 @@ const FlipCard = () => {
             isFlipped ? 'opacity-0' : 'opacity-100'
           }`}
         >
-          <div className="text-center">
+          <div className="text-center ">
             <div className="text-4xl mb-4">📸</div>
-            <p className="text-white font-dancing text-2xl">Click to see a special memory!</p>
+            <p className="text-white font-dancing text-2xl ">Click to see a special memory!</p>
           </div>
         </div>
 

@@ -57,7 +57,7 @@ const GiftBox = ({ onOpen }) => {
         </div>
       </motion.div>
       <motion.p
-        className="mt-4 text-2xl font-dancing text-birthday-purple"
+        className="mt-4 text-2xl font-dancing text-birthday-purple animate-pulse"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
