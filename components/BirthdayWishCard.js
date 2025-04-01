@@ -6,27 +6,33 @@ export default function BirthdayCard() {
   const [isOpen, setIsOpen] = useState(false);
   const cardRef = useRef(null);
 
+  // Use Intersection Observer to detect when card enters/exits viewport
   useEffect(() => {
     const options = {
-      root: null,
+      root: null, // use the viewport
       rootMargin: "0px",
-      threshold: 0.1,
+      threshold: 0.1, // 10% visibility threshold only
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        // When at least 10% of the card is visible, open it
         if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
           setIsOpen(true);
-        } else {
+        }
+        // When less than 10% is visible, close it
+        else {
           setIsOpen(false);
         }
       });
     }, options);
 
+    // Start observing the card
     if (cardRef.current) {
       observer.observe(cardRef.current);
     }
 
+    // Cleanup observer on unmount
     return () => {
       if (cardRef.current) {
         observer.unobserve(cardRef.current);
@@ -34,6 +40,7 @@ export default function BirthdayCard() {
     };
   }, []);
 
+  // Manual click handler still works
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -69,7 +76,7 @@ export default function BirthdayCard() {
           style={{
             transformStyle: "preserve-3d",
             perspective: "2500px",
-            maxHeight: "80vh",
+            maxHeight: "80vh", // Ensure card doesn't exceed viewport height
           }}
           variants={containerVariants}
           animate={isOpen ? "open" : "closed"}
@@ -91,20 +98,33 @@ export default function BirthdayCard() {
             </h3>
 
             <div className="absolute w-full h-4/5 top-16">
-              {/* Balloons */}
-              {[
-                { bg: "rgba(239,71,111,0.7)", left: "5%", top: "15%", border: "#ef476f" },
-                { bg: "rgba(6,214,160,0.7)", left: "28%", top: "8%", border: "#06d6a0" },
-                { bg: "rgba(255,209,102,0.7)", left: "50%", top: "15%", border: "#ffd166" },
-                { bg: "rgba(17,138,178,0.7)", left: "72%", top: "8%", border: "#118ab2" },
-              ].map((balloon, index) => (
-                <div
-                  key={index}
-                  className={`absolute w-1/5 aspect-square rounded-full bg-[${balloon.bg}] left-[${balloon.left}] top-[${balloon.top}]
-                              after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2
-                              before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[${balloon.border}] before:top-[98%] before:left-[40%]`}
-                />
-              ))}
+              {/* First balloon - scales with container */}
+              <div
+                className="absolute w-1/5 aspect-square rounded-full bg-[rgba(239,71,111,0.7)] left-[5%] top-[15%]
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#ef476f] before:top-[98%] before:left-[40%]"
+              />
+
+              {/* Second balloon */}
+              <div
+                className="absolute w-1/5 aspect-square rounded-full bg-[rgba(6,214,160,0.7)] left-[28%] top-[8%]
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#06d6a0] before:top-[98%] before:left-[40%]"
+              />
+
+              {/* Third balloon */}
+              <div
+                className="absolute w-1/5 aspect-square rounded-full bg-[rgba(255,209,102,0.7)] left-[50%] top-[15%]
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#ffd166] before:top-[98%] before:left-[40%]"
+              />
+
+              {/* Fourth balloon */}
+              <div
+                className="absolute w-1/5 aspect-square rounded-full bg-[rgba(17,138,178,0.7)] left-[72%] top-[8%]
+                            after:content-[''] after:absolute after:w-[1px] after:h-[150%] after:bg-[#ffd166] after:top-full after:left-1/2
+                            before:content-[''] before:absolute before:border-r-[5px] before:border-l-[5px] before:border-t-0 before:border-transparent before:border-b-[8px] before:border-b-[#118ab2] before:top-[98%] before:left-[40%]"
+              />
             </div>
           </motion.div>
 
@@ -123,15 +143,15 @@ export default function BirthdayCard() {
               </p>
             </div>
             <div className="w-full px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8">
-              <div className="relative w-full max-w-md mx-auto h-auto">
+              {/* Fixed image container with proper aspect ratio handling */}
+              <div className="relative w-full h-32 sm:h-40 md:h-48">
                 <Image
                   src="/images/wishCard/wishcard.png"
-                  alt="Horizontal Photo"
-                  layout="responsive"
-                  width={700}
-                  height={400}
-                  objectFit="cover"
+                  alt="Birthday Wish"
+                  fill
+                  style={{ objectFit: 'cover' }}
                   className="rounded-xl"
+                  priority
                 />
               </div>
             </div>

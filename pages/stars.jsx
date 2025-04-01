@@ -234,10 +234,11 @@ export default function Home() {
                     <span className="text-2xl">✨</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold">Surprise Bundle #2</p>
+                    <p className="text-white font-semibold">Slidesgow #2</p>
                     <a 
-                      href="/gift2.zip" 
+                      href="https://ncert-epub.s3.us-east-1.amazonaws.com/test/slideshow.mp4" 
                       className="text-cyan-300 hover:text-cyan-200 text-sm transition-colors"
+                      download={"https://ncert-epub.s3.us-east-1.amazonaws.com/test/slideshow.mp4"}
                     >
                       Download Now
                     </a>

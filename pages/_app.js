@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta property="og:title" content="Vanshika" />
         <meta property="og:description" content="Happy Birthday Vanshika" />
-        <meta property="og:image" content="/images/og-image.png" />
+        <meta property="og:image" content="https://vanshika-birthday.vercel.app/images/og-image.png" />
       </Head>
 
       <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" />
