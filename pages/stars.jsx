@@ -215,7 +215,7 @@ export default function Home() {
                   <div className="flex-1">
                     <p className="text-white font-semibold">Scrapbook #1</p>
                     <a 
-                      href="https://ncert-epub.s3.us-east-1.amazonaws.com/test/Neutral+Scrapbook+Moodboard+Photo+Collage+Instagram+Post.png" 
+                      href="https://drive.google.com/uc?export=download&id=1JmbrnCVGMvwuUicqFtGB-D66PBCW2S-r" 
                       className="text-yellow-300 hover:text-yellow-200 text-sm transition-colors"
                     >
                       Download Now
