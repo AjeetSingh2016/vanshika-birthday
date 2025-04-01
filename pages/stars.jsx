@@ -213,9 +213,9 @@ export default function Home() {
                     <span className="text-2xl">🎉</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold">Mystery Pack #1</p>
+                    <p className="text-white font-semibold">Scrapbook #1</p>
                     <a 
-                      href="/gift1.zip" 
+                      href="https://drive.google.com/uc?export=download&id=1JmbrnCVGMvwuUicqFtGB-D66PBCW2S-r" 
                       className="text-yellow-300 hover:text-yellow-200 text-sm transition-colors"
                     >
                       Download Now

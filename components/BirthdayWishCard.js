@@ -145,7 +145,7 @@ export default function BirthdayCard() {
             <div className="w-full px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8">
               <div className="relative w-full max-w-md mx-auto h-auto">
                 <Image
-                  src="/images/wishCard/wishCard.png"
+                  src="/images/wishCard/wishcard.png"
                   alt="Horizontal Photo"
                   layout="responsive"
                   width={700}
