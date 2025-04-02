@@ -136,8 +136,8 @@ export default function BirthdayCard() {
             </h3>
             
             {/* Content - reduced padding on mobile */}
-            <div className="flex-grow flex flex-col justify-center px-2 md:px-6 py-1 ">
-              <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#333] mb-1 sm:mb-2">
+            <div className="flex-grow flex flex-col justify-center md:px-6 py-1 ">
+              <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#333] mb-1">
                 Dear Friend,
               </p>
               <p className="font-dancing font-bold text-sm sm:text-base md:text-lg text-[#333]">
