@@ -128,37 +128,38 @@ export default function BirthdayCard() {
             </div>
           </motion.div>
 
-          {/* Card Inside */}
           <div className="absolute w-full h-full rounded-lg shadow-[inset_0_0_50px_rgba(0,0,0,0.2)] z-[-1] bg-white flex flex-col border-l-2 border-dotted border-[#333]">
-            {/* Header - smaller on mobile */}
-            <h3 className="text-center mt-2 sm:mt-4 md:mt-6 font-sans text-lg sm:text-xl md:text-2xl text-[#333] border-r-2 border-t-2 border-b-2 border-dotted border-[#333] p-1 sm:p-2">
-              HAPPY BIRTHDAY!
-            </h3>
-            
-            {/* Content - reduced padding on mobile */}
-            <div className="flex-grow flex flex-col justify-center md:px-6 py-1 ">
-              <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#333] mb-1">
-                Dear Friend,
-              </p>
-              <p className="font-dancing font-bold text-sm sm:text-base md:text-lg text-[#333]">
-                I hope your day is filled with lots of love and laughter! May
-                all of your birthday wishes come true.
-              </p>
-            </div>
-            
-            {/* Image container - proportional height */}
-            <div className="w-full px-2 sm:px-4 md:px-6 pb-2 sm:pb-4 md:pb-6 flex-shrink-0" style={{ height: "50%" }}>
-              <div className="relative h-full w-full rounded-xl overflow-hidden">
-                <Image
-                  src="/images/wishCard/wishcard.png"
-                  alt="Birthday Wish"
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'center' }}
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+  {/* Header */}
+  <div className="flex justify-center items-center py-2 sm:py-4 md:py-6">
+    <h3 className="font-sans text-lg sm:text-xl md:text-2xl text-[#333] border-2 border-dotted border-[#333] p-1 sm:p-2">
+      HAPPY BIRTHDAY!
+    </h3>
+  </div>
+  
+  {/* Content */}
+  <div className="flex-grow flex flex-col justify-center md:px-6">
+    <h3 className="font-serif italic text-sm sm:text-base md:text-lg text-[#333] mb-2">
+      Dear Vanshika,
+    </h3>
+    <h3 className="font-dancing font-bold text-sm sm:text-base md:text-lg text-[#333]">
+      I hope your day is filled with lots of love and laughter! May
+      all of your birthday wishes come true.
+    </h3>
+  </div>
+  
+  {/* Image container */}
+  <div className="flex justify-center items-center px-2 sm:px-4 md:px-6 pb-2 sm:pb-4 md:pb-6" style={{ flex: "0 0 50%" }}>
+    <div className="relative w-full h-full rounded-xl overflow-hidden">
+      <Image
+        src="/images/wishCard/wishcard.png"
+        alt="Birthday Wish"
+        fill
+        style={{ objectFit: 'cover', objectPosition: 'center' }}
+        priority
+      />
+    </div>
+  </div>
+</div>
         </motion.div>
       </div>
     </div>
