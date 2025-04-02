@@ -21,6 +21,10 @@ const MemorySlideshow = () => {
       image: '/images/slideshow/slideshow4.png',
       caption: '💫 Birthday mood = Happy & glowing! 🌟'
     }
+    ,{
+      image: '/images/slideshow/slideshow5.png',
+      caption: '💖 Smiling through another amazing year! 😊'
+    }
   ];
 
   useEffect(() => {

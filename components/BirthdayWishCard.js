@@ -136,7 +136,7 @@ export default function BirthdayCard() {
             </h3>
             
             {/* Content - reduced padding on mobile */}
-            <div className="flex-grow flex flex-col justify-center px-2 sm:px-4 md:px-6 py-1 sm:py-2">
+            <div className="flex-grow flex flex-col justify-center px-2 md:px-6 py-1 ">
               <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#333] mb-1 sm:mb-2">
                 Dear Friend,
               </p>
@@ -147,7 +147,7 @@ export default function BirthdayCard() {
             </div>
             
             {/* Image container - proportional height */}
-            <div className="w-full px-2 sm:px-4 md:px-6 pb-2 sm:pb-4 md:pb-6 flex-shrink-0" style={{ height: "30%" }}>
+            <div className="w-full px-2 sm:px-4 md:px-6 pb-2 sm:pb-4 md:pb-6 flex-shrink-0" style={{ height: "50%" }}>
               <div className="relative h-full w-full rounded-xl overflow-hidden">
                 <Image
                   src="/images/wishCard/wishcard.png"

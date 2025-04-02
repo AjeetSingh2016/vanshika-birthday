@@ -234,7 +234,7 @@ export default function Home() {
                     <span className="text-2xl">✨</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold">Slidesgow #2</p>
+                    <p className="text-white font-semibold">Slideshow #2</p>
                     <a 
                       href="https://drive.google.com/file/d/1OBQ0Fv1YoeoivyFju_71urExDcB5gkSy/view?usp=sharing" 
                       className="text-cyan-300 hover:text-cyan-200 text-sm transition-colors"

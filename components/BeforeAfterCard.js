@@ -9,8 +9,8 @@ const BeforeAfterCard = () => {
     setIsFlipped(!isFlipped);
   };
 
-  const beforeImage = "/images/beforeAfter/before.jpg";
-  const afterImage = "/images/beforeAfter/after.jpg";
+  const beforeImage = "/images/beforeAfter/before.png";
+  const afterImage = "/images/beforeAfter/after.png";
 
   return (
     <div className="relative w-[300px] h-[500px] md:w-[400px] md:h-[600px] mx-auto my-8 mb-16">
