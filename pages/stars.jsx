@@ -203,7 +203,10 @@ export default function Home() {
 
               <div className="space-y-5">
                 {/* Gift 1 */}
-                <motion.div 
+                <motion.a 
+                  href="https://drive.google.com/uc?export=download&id=1JmbrnCVGMvwuUicqFtGB-D66PBCW2S-r"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="bg-white/10 p-4 rounded-xl flex items-center gap-4 hover:bg-white/20 transition-all"
                   initial={{ x: -50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -213,18 +216,21 @@ export default function Home() {
                     <span className="text-2xl">🎉</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold">Scrapbook #1</p>
-                    <a 
-                      href="https://drive.google.com/uc?export=download&id=1JmbrnCVGMvwuUicqFtGB-D66PBCW2S-r" 
+                    <h3 className="text-white font-semibold">Scrapbook #1</h3>
+                    <h3 
+      
                       className="text-yellow-300 hover:text-yellow-200 text-sm transition-colors"
                     >
                       Download Now
-                    </a>
+                    </h3>
                   </div>
-                </motion.div>
+                </motion.a>
 
                 {/* Gift 2 */}
-                <motion.div 
+                <motion.a 
+                  href="https://ncert-epub.s3.us-east-1.amazonaws.com/test/slideshow.mp4"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="bg-white/10 p-4 rounded-xl flex items-center gap-4 hover:bg-white/20 transition-all"
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -234,16 +240,12 @@ export default function Home() {
                     <span className="text-2xl">✨</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold">Slideshow #2</p>
-                    <a 
-                      href="https://drive.google.com/file/d/1OBQ0Fv1YoeoivyFju_71urExDcB5gkSy/view?usp=sharing" 
-                      className="text-cyan-300 hover:text-cyan-200 text-sm transition-colors"
-                      download={"https://ncert-epub.s3.us-east-1.amazonaws.com/test/slideshow.mp4"}
-                    >
+                    <h3 className="text-white font-semibold">Slideshow #2</h3>
+                    <h3 className=' text-yellow-300 hover:text-yellow-200'>
                       Download Now
-                    </a>
+                    </h3>
                   </div>
-                </motion.div>
+                </motion.a>
               </div>
 
               <motion.div 

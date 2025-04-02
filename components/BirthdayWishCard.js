@@ -137,7 +137,7 @@ export default function BirthdayCard() {
   </div>
   
   {/* Content */}
-  <div className="flex-grow flex flex-col justify-center md:px-6">
+  <div className="flex-grow flex flex-col justify-center px-4 md:px-6">
     <h3 className="font-serif italic text-sm sm:text-base md:text-lg text-[#333] mb-2">
       Dear Vanshika,
     </h3>
